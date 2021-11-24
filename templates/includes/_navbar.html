@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Portal LSPD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Pagina Principal<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/profilesearch">Relatorios</a>
+      </div>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      {% if session.logged_in == True %}
+      <li class="nav-item">
+          <a class="nav-link" href="/profile/{{session.nickname}}">Logged as, {{ session.nickname }} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/terminarsessao">Log Out</a>
+      </li>
+      {% endif %}
+      {% if session.logged_in == NULL %}
+      <li class="nav-item">
+          <a class="nav-link" href="/registrar">Registrar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      {% endif %}
+  </nav>
